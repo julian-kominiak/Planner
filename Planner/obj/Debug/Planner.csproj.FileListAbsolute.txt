@@ -16,3 +16,21 @@
 \\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\View\Planner.g.cs
 \\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\GeneratedInternalTypeHelper.g.cs
 \\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\View\Planner.baml
+E:\Code\WPF Projekt\Planner\Planner\bin\Debug\Planner.exe.config
+E:\Code\WPF Projekt\Planner\Planner\bin\Debug\Planner.exe
+E:\Code\WPF Projekt\Planner\Planner\bin\Debug\Planner.pdb
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\Planner.csprojAssemblyReference.cache
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\View\MainWindow.g.cs
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\View\Planner.g.cs
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\App.g.cs
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\Planner_MarkupCompile.cache
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\Planner_MarkupCompile.lref
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\View\MainWindow.baml
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\View\Planner.baml
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\Planner.g.resources
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\Planner.Properties.Resources.resources
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\Planner.csproj.GenerateResource.cache
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\Planner.csproj.CoreCompileInputs.cache
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\Planner.exe
+E:\Code\WPF Projekt\Planner\Planner\obj\Debug\Planner.pdb

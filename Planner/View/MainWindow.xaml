@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Background>
-        <SolidColorBrush Color="#FFBECCE8"/>
+        <SolidColorBrush Color="#292929"/>
     </Window.Background>
     <qv:Planner/>
 </Window>

@@ -5,39 +5,64 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Planner.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="Transparent">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
         
-        <Viewbox Grid.Column="0" Margin="50">
-            <Calendar x:Name="Callendar" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </Viewbox>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="10*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <Label x:Name="label" Grid.Row="0" Content="Wydarzenia na dzień X:&#xD;&#xA;"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top" Width="380" FontSize="24" FontFamily="Segoe UI Semibold"/>
-
-            <ListBox x:Name="listBox" Grid.Row="1"  Margin="5"/>
-
-            <DockPanel Grid.Row="2">
-                <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left"
-                VerticalAlignment="Top" Height="29" Width="100" Margin="12"/>
-                <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Left"
-                VerticalAlignment="Top" Height="29" Width="100" Margin="12"/>
-                <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left"
-                VerticalAlignment="Top" Height="29" Width="100" Margin="12"/>
-            </DockPanel>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Label x:Name="label" Grid.Column="1" Content="Wydarzenia na dzień X:&#xD;&#xA;"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Bottom"
+                   Width="380" FontSize="24" FontFamily="Segoe UI Semibold"
+                   Foreground="White"/>
+            
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="0" Margin="40 0 40 40">
+                <Calendar x:Name="Callendar" HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Background="#696868"/>
+            </Viewbox>
+            <ListBox x:Name="listBox" Grid.Column="1" 
+                     Margin="40 10 40 50"
+                     Background="#696868"
+                     Foreground="White"/>
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="addButton" Content="Add"
+                    VerticalAlignment="Top" Height="29" Width="100"
+                    Margin="10 0 10 10" Background="#696868"
+                    Foreground="White"/>
+            <Button Grid.Column="1" x:Name="editButton" Content="Edit" 
+                    VerticalAlignment="Top" Height="29" Width="100"
+                    Margin="10 0 10 10" Background="#696868"
+                    Foreground="White"/>
+            <Button Grid.Column="2" x:Name="deleteButton" Content="Delete"
+                    VerticalAlignment="Top" Height="29" Width="100"
+                    Margin="10 0 10 10" Background="#696868"
+                    Foreground="White"/>
+            </Grid>
 
         </Grid>
-    </Grid>
 </UserControl>
