@@ -1,7 +1,7 @@
 ﻿Planner
 
 
-winexe
+exe
 C#
 .cs
 \\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\
@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 \\Mac\Home\Desktop\Projekt\Planner\Planner\App.xaml
-21475981859
+2-112887708
 
-9461534397
+10-703957020
 13-1505183044
-View\MainWindow.xaml;View\Planner.xaml;
+View\MainWindow.xaml;View\PlannerView.xaml;
 
 False
 

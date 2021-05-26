@@ -13,6 +13,6 @@
 \\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\Planner.exe
 \\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\Planner.pdb
 \\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\Planner.csprojAssemblyReference.cache
-\\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\View\Planner.g.cs
 \\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\GeneratedInternalTypeHelper.g.cs
-\\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\View\Planner.baml
+\\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\View\PlannerView.g.cs
+\\Mac\Home\Desktop\Projekt\Planner\Planner\obj\Debug\View\PlannerView.baml
