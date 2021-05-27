@@ -36,7 +36,7 @@
             <Viewbox Grid.Column="0" Margin="40 0 40 40">
                 <Calendar x:Name="Callendar" HorizontalAlignment="Center"
                           VerticalAlignment="Center"
-                          Background="#696868"/>
+                          Background="White"/>
             </Viewbox>
             <ListBox x:Name="listBox" Grid.Column="1" 
                      Margin="40 10 40 50"
