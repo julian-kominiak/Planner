@@ -11,5 +11,6 @@
     <Window.Background>
         <SolidColorBrush Color="#292929"/>
     </Window.Background>
-    <qv:Planner/>
+    <qv:PlannerView
+        CalendarSelectedDate="{Binding Path=Planner.CalendarSelectedDate, Mode=TwoWay}"/>
 </Window>

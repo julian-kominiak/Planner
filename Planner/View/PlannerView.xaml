@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Planner.View.Planner"
+﻿<UserControl x:Class="Planner.View.PlannerView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,6 +14,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         
+<<<<<<< HEAD:Planner/View/Planner.xaml
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -63,6 +64,36 @@
                     Margin="10 0 10 10" Background="#696868"
                     Foreground="White"/>
             </Grid>
+=======
+        <Viewbox Grid.Column="0" Margin="50">
+            <Calendar x:Name="Callendar" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      SelectedDate="{Binding Path=CalendarSelectedDate,
+                RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, 
+                UpdateSourceTrigger=PropertyChanged}"/>
+        </Viewbox>
+        
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="label" Grid.Row="0" Content="Wydarzenia na dzień X:"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Width="380" FontSize="24" FontFamily="Segoe UI Semibold"/>
+
+            <ListBox x:Name="listBox" Grid.Row="1" Margin="5"/>
+
+            <DockPanel Grid.Row="2">
+                <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left"
+                VerticalAlignment="Top" Height="29" Width="100" Margin="12"/>
+                <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Left"
+                VerticalAlignment="Top" Height="29" Width="100" Margin="12"/>
+                <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left"
+                VerticalAlignment="Top" Height="29" Width="100" Margin="12"/>
+            </DockPanel>
+>>>>>>> main:Planner/View/PlannerView.xaml
 
         </Grid>
 </UserControl>
