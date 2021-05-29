@@ -17,5 +17,7 @@
     </Window.DataContext>
 
     <qv:PlannerView
-        DateTime="{Binding Path=Planner.SelectedDate, Mode=TwoWay}"/>
+        SelectedDate="{Binding Path=Planner.SelectedDate, Mode=TwoWay}"
+        Label="{Binding Path=Planner.Label, Mode=TwoWay}"
+        />
 </Window>
