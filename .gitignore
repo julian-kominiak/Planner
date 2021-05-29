@@ -232,3 +232,4 @@ _Pvt_Extensions
 /.dotnet
 .DS_Store
 .idea
+._.DS_Store
