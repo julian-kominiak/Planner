@@ -30,6 +30,11 @@ namespace Planner.View
             set { SetValue(DateTimeProperty, value); }
         }
 
-       
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            EditFormView win2 = new EditFormView();
+            win2.Show();
+        }
     }
 }
