@@ -1,6 +1,7 @@
 ﻿using Planner.ViewModel.BaseClass;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,21 +9,21 @@ using System.Windows.Controls;
 
 namespace Planner.ViewModel
 {
-    class PlannerViewModel : ViewModelBase
+    class PlannerViewModel : ViewModelBase, INotifyPropertyChanged
     {
         public PlannerViewModel()
         {
-
+            SelectedDate = DateTime.Now;
         }
 
-        private string _calendarSelectedDate;
-        public string CalendarSelectedDate
+        private DateTime _selectedDate = DateTime.Now;
+        public DateTime SelectedDate
         {
-            get => _calendarSelectedDate;
+            get { return _selectedDate; }
             set
             {
-                Console.WriteLine("elo");
-                SetProperty(ref _calendarSelectedDate, value);
+                Console.WriteLine("lol");
+                _selectedDate = value; OnPropertyChanged("SelectedDate");
             }
         }
     }

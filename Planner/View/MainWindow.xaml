@@ -12,9 +12,10 @@
         <SolidColorBrush Color="#292929"/>
     </Window.Background>
 
-    <!--<Window.DataContext>
+    <Window.DataContext>
         <vm:MainViewModel/>
-    </Window.DataContext>-->
+    </Window.DataContext>
 
-    <qv:PlannerView/>
+    <qv:PlannerView
+        DateTime="{Binding Path=Planner.SelectedDate, Mode=TwoWay}"/>
 </Window>
