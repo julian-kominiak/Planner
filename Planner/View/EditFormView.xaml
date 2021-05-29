@@ -5,8 +5,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Planner.View"
         mc:Ignorable="d"
-        Title="EditFormView" Height="450" Width="800">
-    <Grid>
-        <Label Content="Works"></Label>
+        Title="EditFormView" Height="450" Width="250">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Description"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Date"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Priority"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Test"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Test"/>
+        </Grid>
     </Grid>
 </Window>
