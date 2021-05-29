@@ -15,8 +15,8 @@ namespace Planner.ViewModel
 
         }
 
-        private DateTime _calendarSelectedDate;
-        public DateTime CalendarSelectedDate
+        private string _calendarSelectedDate;
+        public string CalendarSelectedDate
         {
             get => _calendarSelectedDate;
             set

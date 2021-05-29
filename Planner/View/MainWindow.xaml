@@ -5,10 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Planner"
         xmlns:qv="clr-namespace:Planner.View"
+        xmlns:vm="clr-namespace:Planner.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-	<Window.Background>
-		<SolidColorBrush Color="#292929"/>
-	</Window.Background>
+    <Window.Background>
+        <SolidColorBrush Color="#292929"/>
+    </Window.Background>
+
+    <!--<Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>-->
+
     <qv:PlannerView/>
 </Window>

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Planner.ViewModel
 {
-    class ViewModel : ViewModelBase
+    class MainViewModel : ViewModelBase
     {
-        public ViewModel()
+        public MainViewModel()
         {
             Planner = new PlannerViewModel();
         }

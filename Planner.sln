@@ -1,9 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31019.35
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planner", "Planner\Planner.csproj", "{DA57C1C0-0154-431F-AFF0-DE2B15EB3CA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planner", "Planner\Planner.csproj", "{A4BDB54F-50B8-4ED8-9AA8-DFE8430FEFE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DA57C1C0-0154-431F-AFF0-DE2B15EB3CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA57C1C0-0154-431F-AFF0-DE2B15EB3CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA57C1C0-0154-431F-AFF0-DE2B15EB3CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA57C1C0-0154-431F-AFF0-DE2B15EB3CA6}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1A2B9C28-EBBE-4C60-AA80-3F99D662516D}
+		{A4BDB54F-50B8-4ED8-9AA8-DFE8430FEFE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4BDB54F-50B8-4ED8-9AA8-DFE8430FEFE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4BDB54F-50B8-4ED8-9AA8-DFE8430FEFE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4BDB54F-50B8-4ED8-9AA8-DFE8430FEFE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

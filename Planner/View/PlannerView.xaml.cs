@@ -15,14 +15,22 @@ using System.Windows.Shapes;
 
 namespace Planner.View
 {
-    /// <summary>
-    /// Interaction logic for PlannerView.xaml
-    /// </summary>
     public partial class PlannerView : UserControl
     {
         public PlannerView()
         {
             InitializeComponent();
+        }
+
+        public static readonly DependencyProperty SelectedDateProperty =
+            DependencyProperty.Register(
+                nameof(SelectedDate),
+                typeof(string),
+                typeof(PlannerView));
+        public string SelectedDate
+        {
+            get { return (string)GetValue(SelectedDateProperty); }
+            set { SetValue(SelectedDateProperty, value); }
         }
     }
 }

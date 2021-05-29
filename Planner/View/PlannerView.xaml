@@ -34,12 +34,14 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="0" Margin="40 0 40 40">
-                <Calendar x:Name="Calendar" HorizontalAlignment="Center"
+                <Calendar HorizontalAlignment="Center"
                           VerticalAlignment="Center"
-                          Background="White"/>
+                          Background="White"
+                          SelectedDate="{Binding Path=SelectedDate,
+            RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
             </Viewbox>
-            <ListBox x:Name="listBox" Grid.Column="1"
-                     Margin="40 10 40 50"
+            <ListBox Grid.Column="1"
+                     Margin="40 5 40 45"
                      Background="#696868"
                      Foreground="White"/>
         </Grid>
@@ -50,15 +52,15 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="add" Content="Add"
+            <Button Grid.Column="0" Content="Add"
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10" Background="#696868"
                     Foreground="White"/>
-            <Button Grid.Column="1" x:Name="edit" Content="Edit"
+            <Button Grid.Column="1" Content="Edit"
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10" Background="#696868"
                     Foreground="White"/>
-            <Button Grid.Column="2" x:Name="delete" Content="Delete"
+            <Button Grid.Column="2" Content="Delete"
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10" Background="#696868"
                     Foreground="White"/>
