@@ -5,7 +5,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Planner.View"
         mc:Ignorable="d"
-        Title="EditFormView" Height="450" Width="250">
+        Title="EditFormView" Height="450" Width="250" FontFamily="Lucida Sans" Foreground="White" Background="#FF292929">
+    <Window.Resources>
+        <Style x:Key="EditFormLabels" TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
@@ -19,16 +27,19 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Description"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Date"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="Priority"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="Name" Style="{StaticResource EditFormLabels}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Description" Style="{StaticResource EditFormLabels}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Date" Style="{StaticResource EditFormLabels}"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Priority" Style="{StaticResource EditFormLabels}"/>
 
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="Test"/>
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="Test"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="Test" Margin="5 30 5 30" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="Test" Margin="5 30 5 30" VerticalContentAlignment="Center"/>
+            <DatePicker Grid.Row="2" Grid.Column="1" Margin="5 30 5 30"/>
+            <ComboBox Grid.Row="3" Grid.Column="1" Margin="5 30 5 30"/>
         </Grid>
+        <Button Grid.Row="1" Margin="5 25" Content="Save" Background="#FF696868" Foreground="White"/>
     </Grid>
 </Window>
