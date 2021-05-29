@@ -23,8 +23,8 @@ namespace Planner.ViewModel
             get { return _selectedDate; }
             set
             {
-                _selectedDate = value; OnPropertyChanged("SelectedDate");
-                Label = SelectedDate.ToString();
+                SetProperty(ref _selectedDate, value);
+                Label = formatLabel(SelectedDate);
             }
         }
         
@@ -34,8 +34,13 @@ namespace Planner.ViewModel
             get { return _label; }
             set
             {
-                _label = value; OnPropertyChanged("Label");
+                SetProperty(ref _label, value);
             }
+        }
+
+        private static string formatLabel(DateTime dateTime)
+        {
+            return "Events for " + dateTime.ToString("dd/MM/yyyy");;
         }
     }
 }
