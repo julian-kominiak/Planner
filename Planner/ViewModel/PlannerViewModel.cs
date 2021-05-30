@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using Planner.Data;
 using Planner.Model;
+using Planner.View;
 
 namespace Planner.ViewModel
 {
@@ -44,6 +45,7 @@ namespace Planner.ViewModel
                 SetProperty(ref _selectedDate, value);
                 Label = formatLabel(SelectedDate);
                 ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date);
+                Mouse.Capture(null);
             }
         }
         
@@ -92,6 +94,22 @@ namespace Planner.ViewModel
             {
                 SetProperty(ref _tooltip, value);
             }
+        }
+        
+        private ICommand _addEvent;
+        public ICommand AddEvent
+        {
+            get
+            {
+                return _addEvent ??= new RelayCommand
+                    (arg => OpenAddEventForm(), arg => true);
+            }
+        }
+
+        private void OpenAddEventForm()
+        {
+            FormView addView = new FormView("Add Event");
+            addView.Show();
         }
 
         private ICommand _deleteEvent;
