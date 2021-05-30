@@ -47,7 +47,19 @@
                      FontFamily="Lucida Sans"
                      FontSize="20"
                      ItemsSource="{Binding Path=ItemsSource,
-                     RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+                     RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                     SelectedItem="{Binding Path=SelectedItem,
+                     RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}">
+                            <TextBlock.ToolTip>
+                                <TextBlock Text="{Binding Description}"/>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -70,7 +82,9 @@
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10" Background="#696868"
                     Foreground="White"
-                    Click="DeleteEventOnClick"/>
+                    Command="{Binding Path=DeleteEvent,
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                    />
         </Grid>
     </Grid>
 </UserControl>
