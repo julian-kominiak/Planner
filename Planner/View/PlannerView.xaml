@@ -56,16 +56,18 @@
             <Button Grid.Column="0" Content="Add"
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10" Background="#696868"
-                    Foreground="White"/>
+                    Foreground="White"
+                    Click="AddEventOnClick"/>
             <Button Grid.Column="1" Content="Edit"
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10" Background="#696868"
-                    Foreground="White"/>
+                    Foreground="White"
+                    Click="EditEventOnClick"/>
             <Button Grid.Column="2" Content="Delete"
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10" Background="#696868"
                     Foreground="White"
-                    Click="ButtonBase_OnClick"/>
+                    Click="DeleteEventOnClick"/>
         </Grid>
     </Grid>
 </UserControl>

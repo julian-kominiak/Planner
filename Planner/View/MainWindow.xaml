@@ -7,31 +7,17 @@
         xmlns:qv="clr-namespace:Planner.View"
         xmlns:vm="clr-namespace:Planner.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontFamily="Lucida Sans"
-        Background="Transparent"
-        AllowsTransparency="True"
-        WindowStyle="None">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <Window.Background>
+        <SolidColorBrush Color="#292929"/>
+    </Window.Background>
 
-    
-    
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
 
-    <Border CornerRadius="35" BorderThickness="20" BorderBrush="#FF535353">
-        <Grid Background="#FF535353">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="95*"/>
-            </Grid.RowDefinitions>
-            <Button Content="X" Width="20" HorizontalAlignment="Right" Foreground="White" BorderBrush="Transparent" Background="Transparent"/>
-            <qv:PlannerView
-        Grid.Row="1"
+    <qv:PlannerView
         SelectedDate="{Binding Path=Planner.SelectedDate, Mode=TwoWay}"
         Label="{Binding Path=Planner.Label, Mode=TwoWay}"
         />
-        </Grid>
-    </Border>
-    
-    
 </Window>

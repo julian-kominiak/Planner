@@ -38,11 +38,21 @@ namespace Planner.View
             set { SetValue(LabelProperty, value); }
         }
 
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void AddEventOnClick(object sender, RoutedEventArgs e)
         {
-            EditFormView win2 = new EditFormView();
-            win2.Show();
+            EditFormView addView = new EditFormView(DateTime.Today);
+            addView.Show();
+        }
+
+        private void EditEventOnClick(object sender, RoutedEventArgs e)
+        {
+            EditFormView editView = new EditFormView("Testowy tytuł", "Testowy opis", DateTime.Today);
+            editView.Show();
+        }
+
+        private void DeleteEventOnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
