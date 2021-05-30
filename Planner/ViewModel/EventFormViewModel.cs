@@ -1,16 +1,26 @@
 ﻿using System;
+using Planner.Model;
+using Planner.Data;
 using Planner.ViewModel.BaseClass;
 
 namespace Planner.ViewModel
 {
     public class EditFormViewModel: ViewModelBase
     {
-        private string _name;
-
-        public string Name
+        public EditFormViewModel()
         {
-            get => _name;
-            set => SetProperty(ref _name, value);
+            Event sampleEvent = new Event ("Sample Event Title", "sample event description", DateTime.Now.AddDays(-1).Date, Model.Priority.High);
+            Title = sampleEvent.Title;
+            Description = sampleEvent.Description;
+            Date = sampleEvent.Date;
+            Priority = sampleEvent.Priority;
+        }
+        private string _title;
+
+        public string Title
+        {
+            get => _title;
+            set => SetProperty(ref _title, value);
         }
 
         private string _description;

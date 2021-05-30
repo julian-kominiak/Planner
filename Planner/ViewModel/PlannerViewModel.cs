@@ -108,7 +108,7 @@ namespace Planner.ViewModel
 
         private void OpenAddEventForm()
         {
-            FormView addView = new FormView("Add Event");
+            EventFormView addView = new EventFormView("Add Event");
             addView.Show();
         }
 

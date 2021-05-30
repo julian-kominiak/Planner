@@ -4,11 +4,11 @@ namespace Planner.Model
 {
     public class Event
     {
-        private string Title { get; set; }
+        public string Title { get; set; }
 
         public string Description { get; set; }
         public DateTime Date { get; set; }
-        private Priority Priority { get; set; }
+        public Priority Priority { get; set; }
 
         public Event(string title, string description, DateTime date, Priority priority)
         {
