@@ -7,7 +7,7 @@
         xmlns:qv="clr-namespace:Planner.View"
         xmlns:vm="clr-namespace:Planner.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Window.Background>
         <SolidColorBrush Color="#292929"/>
     </Window.Background>
