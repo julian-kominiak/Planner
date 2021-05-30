@@ -7,14 +7,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
+using Planner.Data;
+using Planner.Model;
 
 namespace Planner.ViewModel
 {
-    class PlannerViewModel : ViewModelBase, INotifyPropertyChanged
+    class PlannerViewModel : ViewModelBase
     {
         public PlannerViewModel()
         {
             SelectedDate = DateTime.Now;
+            initializeData();
+        }
+
+        private void initializeData()
+        {
+            Event sampleEvent = new Event
+                ("Sample Event Tit", "sample event description", DateTime.Now, Priority.High);
+            EventsDTO.addEvent(sampleEvent);
+            ItemsSource = EventsDTO.getAllEvents();
         }
 
         private DateTime _selectedDate;
@@ -28,6 +40,11 @@ namespace Planner.ViewModel
             }
         }
         
+        private static string formatLabel(DateTime dateTime)
+        {
+            return "Events for " + dateTime.ToString("dd/MM/yyyy");;
+        }
+        
         private string _label;
         public string Label
         {
@@ -38,9 +55,15 @@ namespace Planner.ViewModel
             }
         }
 
-        private static string formatLabel(DateTime dateTime)
+        private List<Event> _itemsSource;
+
+        public List<Event> ItemsSource
         {
-            return "Events for " + dateTime.ToString("dd/MM/yyyy");;
+            get { return _itemsSource; }
+            set
+            {
+                SetProperty(ref _itemsSource, value);
+            }
         }
     }
 }

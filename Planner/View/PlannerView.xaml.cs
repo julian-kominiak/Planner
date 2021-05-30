@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Planner.Model;
 
 namespace Planner.View
 {
@@ -36,6 +37,14 @@ namespace Planner.View
         {
             get { return (string)GetValue(LabelProperty); }
             set { SetValue(LabelProperty, value); }
+        }
+        
+        public static readonly DependencyProperty ItemsSourceProperty =
+            DependencyProperty.Register("ItemsSource", typeof(List<Event>), typeof(PlannerView));
+        public List<Event> ItemsSource
+        {
+            get { return (List<Event>)GetValue(ItemsSourceProperty); }
+            set { SetValue(ItemsSourceProperty, value); }
         }
 
         private void AddEventOnClick(object sender, RoutedEventArgs e)

@@ -44,7 +44,10 @@
             <ListBox Grid.Column="1"
                      Margin="40 5 40 45"
                      Background="White"
-                     Foreground="White"/>
+                     FontFamily="Lucida Sans"
+                     FontSize="20"
+                     ItemsSource="{Binding Path=ItemsSource,
+                     RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
         </Grid>
 
         <Grid Grid.Row="2">
