@@ -97,7 +97,8 @@
             <Button Grid.Column="1" Content="Edit"
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10"
-                    Click="EditEventOnClick" />
+                    Command="{Binding Path=EditEvent,
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
             <Button Grid.Column="2" Content="Delete"
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10"

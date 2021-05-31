@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Planner.View"
         xmlns:vm="clr-namespace:Planner.ViewModel"
         mc:Ignorable="d"
-        Title="" Height="450" Width="250" FontFamily="Lucida Sans" Foreground="White" Background="#FF292929"
+        Title="{Binding WindowTitle}" Height="450" Width="250" FontFamily="Lucida Sans" Foreground="White" Background="#FF292929"
         ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="FormLabels" TargetType="Label">
@@ -16,9 +16,11 @@
         </Style>
     </Window.Resources>
     
+    <!--
     <Window.DataContext>
-        <vm:EditFormViewModel x:Name="EditForm"/>
+        <vm:EventFormViewModel/>
     </Window.DataContext>
+    -->
     
     <Grid Margin="10">
         <Grid.RowDefinitions>

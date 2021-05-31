@@ -23,5 +23,6 @@
         Tooltip="{Binding Path=Planner.Tooltip}"
         SelectedItem="{Binding Path=Planner.SelectedItem, Mode=TwoWay}"
         AddEvent="{Binding Path=Planner.AddEvent}"
+        EditEvent="{Binding Path=Planner.EditEvent}"
         DeleteEvent="{Binding Path=Planner.DeleteEvent}"/>
 </Window>

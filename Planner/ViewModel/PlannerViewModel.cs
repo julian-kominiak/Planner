@@ -108,8 +108,26 @@ namespace Planner.ViewModel
 
         private void OpenAddEventForm()
         {
-            EventFormView addView = new EventFormView("Add Event");
+            EventFormView addView = new EventFormView();
             addView.Show();
+        }
+
+        private ICommand _editEvent;
+
+        public ICommand EditEvent
+        {
+            get
+            {
+                return _editEvent ??= new RelayCommand(
+                    arg=>OpenEditEventForm(), arg=>true);
+            }
+        }
+
+        private void OpenEditEventForm()
+        {
+            Event sampleEvent = new Event ("Sample Event Title", "sample event description", DateTime.Now.AddDays(-1).Date, Model.Priority.High);
+            EventFormView editView = new EventFormView(sampleEvent);
+            editView.Show();
         }
 
         private ICommand _deleteEvent;
