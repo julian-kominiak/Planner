@@ -62,13 +62,14 @@ namespace Planner.View
             set { SetValue(AddEventProperty, value); }
         }
 
-        //zrob w mvvm tak jak AddEvent
-        private void EditEventOnClick(object sender, RoutedEventArgs e)
+        public static readonly DependencyProperty EditEventProperty =
+            DependencyProperty.Register("EditEvent", typeof(ICommand), typeof(PlannerView));
+        public ICommand EditEvent
         {
-            //FormView editView = new FormView("Testowy tytuł", "Testowy opis", DateTime.Today);
-            //editView.Show();
+            get { return (ICommand)GetValue(EditEventProperty); }
+            set { SetValue(EditEventProperty, value); }
         }
-
+        
         public static readonly DependencyProperty DeleteEventProperty =
             DependencyProperty.Register("DeleteEvent", typeof(ICommand), typeof(PlannerView));
         public ICommand DeleteEvent
