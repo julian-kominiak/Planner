@@ -60,7 +60,8 @@
             RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
 
             </Viewbox>
-            <ListBox Grid.Column="1"
+            <ListBox x:Name="ListBox"
+                     Grid.Column="1"
                      Margin="40 5 40 45"
                      Background="#292929"
                      Foreground="DarkGray"

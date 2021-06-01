@@ -14,11 +14,15 @@ namespace Planner.ViewModel
             Planner = new PlannerViewModel();
         }
         
-        private readonly PlannerViewModel _planner;
-        public PlannerViewModel Planner
+        private static PlannerViewModel _planner;
+        public static PlannerViewModel Planner
         {
             get => _planner;
-            private init => SetProperty(ref _planner, value);
+            private set
+            {
+                _planner = value;
+            }
+
         }
     }
 }

@@ -17,6 +17,9 @@ namespace Planner.ViewModel
 {
     class PlannerViewModel : ViewModelBase
     {
+        private static PlannerViewModel _instance = new PlannerViewModel();
+        public static PlannerViewModel Instance { get { return _instance; } }
+        
         public PlannerViewModel()
         {
             initializeData();
@@ -44,9 +47,14 @@ namespace Planner.ViewModel
             {
                 SetProperty(ref _selectedDate, value);
                 Label = formatLabel(SelectedDate);
-                ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date);
+                updateListBox();
                 Mouse.Capture(null);
             }
+        }
+
+        public void updateListBox()
+        {
+            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date);
         }
         
         private static string formatLabel(DateTime dateTime)
@@ -95,7 +103,7 @@ namespace Planner.ViewModel
                 SetProperty(ref _tooltip, value);
             }
         }
-        
+
         private ICommand _addEvent;
         public ICommand AddEvent
         {
@@ -106,10 +114,21 @@ namespace Planner.ViewModel
             }
         }
 
+        private EventFormView _addView;
+
+        public EventFormView AddView
+        {
+            get { return _addView; }
+            set
+            {
+                SetProperty(ref _addView, value);
+            }
+        }
+
         private void OpenAddEventForm()
         {
-            EventFormView addView = new EventFormView();
-            addView.Show();
+            AddView = new EventFormView();
+            AddView.Show();
         }
 
         private ICommand _editEvent;

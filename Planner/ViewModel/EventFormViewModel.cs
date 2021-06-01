@@ -1,4 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Windows;
+using System.Windows.Input;
 using Planner.Model;
 using Planner.Data;
 using Planner.View;
@@ -8,9 +14,13 @@ namespace Planner.ViewModel
 {
     public class EventFormViewModel: ViewModelBase
     {
+        
+        
         public EventFormViewModel()
         {
             WindowTitle = "Add event";
+            Date = DateTime.Today.Date;
+            
         }
 
         public EventFormViewModel(Event @event)
@@ -65,19 +75,44 @@ namespace Planner.ViewModel
             }
         }
 
-        private Enum _priority;
-
-        public Enum Priority
+        public IEnumerable<Priority> PriorityEnumValues
         {
-            get { return _priority; }
-            set
+            get
             {
-                SetProperty(ref _priority, value);
+                return Enum.GetValues(typeof(Priority))
+                    .Cast<Priority>();
             }
         }
 
-        private void PerformSaveEventAction(){
-            throw new NotImplementedException();
+        private Priority _selectedPriority;
+        public Priority SelectedPriority
+        {
+            get { return _selectedPriority; }
+            set { 
+                _selectedPriority = value;
+                OnPropertyChanged("SelectedPriority");
+            }
         }
+        
+        private ICommand _saveEvent;
+
+        public ICommand SaveEvent
+        {
+            get
+            {
+                return _saveEvent ??= new RelayCommand(
+                    arg=>PerformSaveEventAction(), arg=>(Title is not null));
+            }
+        }
+
+        private void PerformSaveEventAction()
+        {
+            Event newEvent = new Event(Title, Description, Date, SelectedPriority);
+            EventsDTO.addEvent(newEvent);
+            MainViewModel.Planner.updateListBox();
+            MainViewModel.Planner.AddView.Close();
+        }
+        
+
     }
 }
