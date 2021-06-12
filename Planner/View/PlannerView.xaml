@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Planner.View"
+             xmlns:vm="clr-namespace:Planner.ViewModel"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800" Background="Transparent" FontFamily="Lucida Sans">
 
@@ -60,7 +61,7 @@
             RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
 
             </Viewbox>
-            <ListBox x:Name="ListBox"
+            <ListView x:Name="MyListView"
                      Grid.Column="1"
                      Margin="40 5 40 45"
                      Background="#292929"
@@ -70,7 +71,8 @@
                      ItemsSource="{Binding Path=ItemsSource,
                      RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                      SelectedItem="{Binding Path=SelectedItem,
-                     RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                     RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                     >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}">
@@ -80,7 +82,7 @@
                         </TextBlock>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListBox>
+            </ListView>
         </Grid>
 
         <Grid Grid.Row="2">

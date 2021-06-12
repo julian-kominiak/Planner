@@ -17,25 +17,8 @@ namespace Planner.ViewModel
 {
     class PlannerViewModel : ViewModelBase
     {
-        private static PlannerViewModel _instance = new PlannerViewModel();
-        public static PlannerViewModel Instance { get { return _instance; } }
-        
         public PlannerViewModel()
         {
-            initializeData();
-        }
-
-        private void initializeData()
-        {
-            Event sampleEvent = new Event
-                ("Sample Event Title", "sample event description", DateTime.Now.Date, Priority.High);
-            Event sampleEvent2 = new Event
-                ("Sample Event Title2", "sample event description", DateTime.Now.Date, Priority.High);
-            Event yesterdayEvent = new Event
-                ("Yesterday Event", "yesterday event description", DateTime.Now.AddDays(-1).Date, Priority.High);
-            EventsDTO.addEvent(sampleEvent);
-            EventsDTO.addEvent(sampleEvent2);
-            EventsDTO.addEvent(yesterdayEvent);
             SelectedDate = DateTime.Now;
         }
 
@@ -59,7 +42,7 @@ namespace Planner.ViewModel
         
         private static string formatLabel(DateTime dateTime)
         {
-            return "Events for " + dateTime.ToString("dd/MM/yyyy");;
+            return "Events for " + dateTime.ToString("MM/dd/yyyy");;
         }
         
         private string _label;
@@ -82,7 +65,7 @@ namespace Planner.ViewModel
                 SetProperty(ref _itemsSource, value);
             }
         }
-        
+
         private Event _selectedItem;
         public Event SelectedItem
         {
@@ -128,7 +111,8 @@ namespace Planner.ViewModel
         private void OpenAddEventForm()
         {
             AddView = new EventFormView();
-            AddView.Show();
+            AddView.ShowDialog();
+            AddView.Focus();
         }
 
         private ICommand _editEvent;
@@ -138,15 +122,27 @@ namespace Planner.ViewModel
             get
             {
                 return _editEvent ??= new RelayCommand(
-                    arg=>OpenEditEventForm(), arg=>true);
+                    arg=>OpenEditEventForm(), arg=> SelectedItem != null);
+            }
+        }
+        
+        private EventFormView _editView;
+
+        public EventFormView EditView
+        {
+            get { return _editView; }
+            set
+            {
+                SetProperty(ref _editView, value);
             }
         }
 
         private void OpenEditEventForm()
         {
-            Event sampleEvent = new Event ("Sample Event Title", "sample event description", DateTime.Now.AddDays(-1).Date, Model.Priority.High);
-            EventFormView editView = new EventFormView(sampleEvent);
-            editView.Show();
+            
+            
+            EditView = new EventFormView(SelectedItem);
+            EditView.ShowDialog();
         }
 
         private ICommand _deleteEvent;

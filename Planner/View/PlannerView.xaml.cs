@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using Planner.Model;
 
 namespace Planner.View
@@ -35,7 +37,10 @@ namespace Planner.View
         public List<Event> ItemsSource
         {
             get { return (List<Event>)GetValue(ItemsSourceProperty); }
-            set { SetValue(ItemsSourceProperty, value); }
+            set
+            {
+                SetValue(ItemsSourceProperty, value);
+            }
         }
         
         public static readonly DependencyProperty SelectedItemProperty =
@@ -43,9 +48,12 @@ namespace Planner.View
         public Event SelectedItem
         {
             get { return (Event)GetValue(SelectedItemProperty); }
-            set { SetValue(SelectedItemProperty, value); }
+            set
+            {
+                SetValue(SelectedItemProperty, value);
+            }
         }
-        
+
         public static readonly DependencyProperty TooltipProperty =
             DependencyProperty.Register("Tooltip", typeof(string), typeof(PlannerView));
         public string Tooltip

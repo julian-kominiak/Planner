@@ -19,8 +19,7 @@ namespace Planner.ViewModel
         public EventFormViewModel()
         {
             WindowTitle = "Add event";
-            Date = DateTime.Today.Date;
-            
+            Date = MainViewModel.Planner.SelectedDate;
         }
 
         public EventFormViewModel(Event @event)
@@ -29,6 +28,19 @@ namespace Planner.ViewModel
             Title = @event.Title;
             Description = @event.Description;
             Date = @event.Date;
+            SelectedPriority = @event.Priority;
+            OldEvent = @event;
+        }
+        
+        private Event _oldEvent;
+
+        public Event OldEvent
+        {
+            get { return _oldEvent; }
+            set
+            {
+                SetProperty(ref _oldEvent, value);
+            }
         }
 
         private string _windowTitle;
@@ -107,10 +119,23 @@ namespace Planner.ViewModel
 
         private void PerformSaveEventAction()
         {
-            Event newEvent = new Event(Title, Description, Date, SelectedPriority);
-            EventsDTO.addEvent(newEvent);
+            Event NewEvent = new Event(Title, Description, Date.Date, SelectedPriority);
+            if (OldEvent is not null)
+            {
+                PerformEditEventAction(NewEvent);
+                return;
+            }
+            EventsDTO.addEvent(NewEvent);
             MainViewModel.Planner.updateListBox();
             MainViewModel.Planner.AddView.Close();
+            
+        }
+
+        private void PerformEditEventAction(Event @NewEvent)
+        {
+            EventsDTO.editEvent(OldEvent, NewEvent);
+            MainViewModel.Planner.updateListBox();
+            MainViewModel.Planner.EditView.Close();
         }
         
 

@@ -6,49 +6,67 @@
         xmlns:local="clr-namespace:Planner.View"
         xmlns:vm="clr-namespace:Planner.ViewModel"
         mc:Ignorable="d"
-        Title="{Binding WindowTitle}" Height="450" Width="250" FontFamily="Lucida Sans" Foreground="White" Background="#FF292929"
+        Title="{Binding WindowTitle}" Height="500" Width="400" FontFamily="Lucida Sans" Foreground="White" Background="#FF292929"
         ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="FormLabels" TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="DarkGray"/>
+            <Setter Property="FontFamily" Value="Lucida Sans"/>
+            <Setter Property="FontSize" Value="16"/>
         </Style>
     </Window.Resources>
     
-    <Grid Margin="10">
+    <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="8*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="6*"/>
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions> 
             <Label Grid.Row="0" Grid.Column="0" Content="Name" Style="{StaticResource FormLabels}"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Description" Style="{StaticResource FormLabels}"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Date" Style="{StaticResource FormLabels}"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Priority" Style="{StaticResource FormLabels}"/>
 
-            <TextBox Grid.Row="0" Grid.Column="1" Margin="5 30 5 30" 
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="5 20 5 20" 
                      VerticalContentAlignment="Center"
-                     Text="{Binding Title}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="5 30 5 30" VerticalContentAlignment="Center"
-                     Text="{Binding Description}"/>
-            <DatePicker Grid.Row="2" Grid.Column="1" Margin="5 30 5 30"
-                     SelectedDate="{Binding Date}"/>
+                     Text="{Binding Title}"
+                     Background="#292929"
+                     Foreground="DarkGray"
+                     FontSize="20"
+                     Height="30"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5 20 5 20" VerticalContentAlignment="Center"
+                     Text="{Binding Description}"
+                     Background="#292929"
+                     Foreground="DarkGray"
+                     FontSize="20"
+                     Height="30"/>
+            <Viewbox Grid.Row="2" Grid.Column="1" Margin="5 20 5 20">
+                <DatePicker SelectedDate="{Binding Date}"
+                            Background="#292929"
+                            FontSize="20"
+                            Height="30"/>
+            </Viewbox>
+            
             <ComboBox Grid.Row="3" Grid.Column="1" Margin="5 30 5 30"
                      ItemsSource="{Binding PriorityEnumValues}"
-                     SelectedItem="{Binding SelectedPriority}"/>
+                     SelectedItem="{Binding SelectedPriority}"
+                     Background="#292929"
+                     FontSize="20"
+                     Height="30"/>
         </Grid>
-        <Button Grid.Row="1" Margin="5 25" Content="Save" Background="#FF696868" Foreground="White"
-                Command="{Binding SaveEvent}"/>
+        <Button Grid.Row="1" Margin="5 25" Content="Save"
+                Command="{Binding SaveEvent}" Width="100" Height="30"/>
     </Grid>
 </Window>

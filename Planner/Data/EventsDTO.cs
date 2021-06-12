@@ -29,5 +29,11 @@ namespace Planner.Data
         {
             _events.RemoveAll(x => x.Equals(@event));
         }
+
+        public static void editEvent(Event @OldEvent, Event @NewEvent)
+        {
+            _events.Remove(OldEvent);
+            _events.Add(@NewEvent);
+        }
     }
 }

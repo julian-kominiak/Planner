@@ -12,6 +12,8 @@
         <SolidColorBrush Color="#292929"/>
     </Window.Background>
 
+
+    
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
