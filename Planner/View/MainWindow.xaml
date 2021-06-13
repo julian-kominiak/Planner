@@ -19,6 +19,7 @@
     <qv:PlannerView
         SelectedDate="{Binding Path=Planner.SelectedDate, Mode=TwoWay}"
         Label="{Binding Path=Planner.Label, Mode=TwoWay}"
+        CurrentUser="{Binding Path=Planner.CurrentUser, Mode=TwoWay}"
         ItemsSource="{Binding Path=Planner.ItemsSource, Mode=TwoWay}"
         Tooltip="{Binding Path=Planner.Tooltip}"
         SelectedItem="{Binding Path=Planner.SelectedItem, Mode=TwoWay}"

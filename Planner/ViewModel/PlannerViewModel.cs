@@ -30,9 +30,12 @@ namespace Planner.ViewModel
 
         private string _tooltip;
 
+        private string _currentUser;
+
         public PlannerViewModel()
         {
             SelectedDate = DateTime.Now;
+            CurrentUser = "Karbid";
         }
 
         public DateTime SelectedDate
@@ -51,6 +54,12 @@ namespace Planner.ViewModel
         {
             get => _label;
             set => SetProperty(ref _label, value);
+        }
+        
+        public string CurrentUser
+        {
+            get => _currentUser;
+            set => SetProperty(ref _currentUser, value);
         }
 
         public List<Event> ItemsSource

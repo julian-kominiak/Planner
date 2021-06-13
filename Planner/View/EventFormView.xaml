@@ -30,7 +30,7 @@
                 <RowDefinition Height="8*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="6*" />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Name" Style="{StaticResource FormLabels}" />
@@ -51,11 +51,12 @@
                      Foreground="DarkGray"
                      FontSize="20"
                      Height="30" />
-            <Viewbox Grid.Row="2" Grid.Column="1" Margin="5 10 5 10">
+            <Viewbox Grid.Row="2" Grid.Column="1" Margin="5 10 5 10" Height="40">
                 <DatePicker SelectedDate="{Binding Date}"
                             Background="#292929"
                             FontSize="20"
-                            Height="30" />
+                            Height="40"
+                            Width="420"/>
             </Viewbox>
 
             <ComboBox Grid.Row="3" Grid.Column="1" Margin="5 10 5 10"

@@ -18,17 +18,32 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="1.3*" />
             <RowDefinition Height="7*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-
+        
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
+            <Label 
+                   Margin="48 0 10 0 "
+                   Content="{Binding Path=CurrentUser,
+            RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   FontSize="24"
+                   FontFamily="Lucida Sans"
+                   Foreground="DarkGray"/>
+            
+            <Button Grid.Column="0" Content="Change User" Height="29" Width="100"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="10 0 50 10"/>
+            
             <Label Grid.Column="1"
                    Content="{Binding Path=Label,
             RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
@@ -56,8 +71,7 @@
             RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
 
             </Viewbox>
-            <ListView x:Name="MyListView"
-                      Grid.Column="1"
+            <ListView Grid.Column="1"
                       Margin="40 5 40 45"
                       Background="#292929"
                       Foreground="DarkGray"

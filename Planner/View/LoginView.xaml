@@ -1,0 +1,83 @@
+﻿<Window x:Class="Planner.View.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Planner.View"
+        mc:Ignorable="d"
+        Title="Login" Height="250" Width="300" FontFamily="Lucida Sans" Foreground="White"
+        Background="#FF292929" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="LoginLabels" TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Foreground" Value="DarkGray" />
+            <Setter Property="FontFamily" Value="Lucida Sans" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2.4*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" Content="Login" 
+                   Style="{StaticResource LoginLabels}"/>
+            
+            <TextBox Grid.Column="1" Margin="5 10 10 10"
+                     VerticalContentAlignment="Center"
+                     Text="{Binding Login}"
+                     Background="#292929"
+                     Foreground="DarkGray"
+                     FontSize="20"
+                     Height="30" />
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2.4*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" Content="Password" 
+                   Style="{StaticResource LoginLabels}"/>
+            
+            <PasswordBox Name="PasswordBox"
+                     Grid.Column="1" Margin="5 10 10 10"
+                     VerticalContentAlignment="Center"
+                     Background="#292929"
+                     Foreground="DarkGray"
+                     FontSize="20"
+                     Height="30">
+            </PasswordBox>
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Content="Create Account"
+                    VerticalAlignment="Center" Height="29" Width="100"
+                    Margin="10 0 10 10"
+                    Command="{Binding Path=CreateAccountButton}"
+                    CommandParameter="{Binding ElementName=PasswordBox}"/>
+            <Button Grid.Column="1" Content="Login"
+                    VerticalAlignment="Center" Height="29" Width="100"
+                    Margin="10 0 10 10"
+                    Command="{Binding Path=LoginButton}"
+                    CommandParameter="{Binding ElementName=PasswordBox}"/>
+        </Grid>
+        
+    </Grid>
+</Window>
