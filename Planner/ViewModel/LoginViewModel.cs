@@ -36,12 +36,16 @@ namespace Planner.ViewModel
         private void PerformLoginAction(object parameter)
         {
             PasswordBox passwordBox = (PasswordBox) parameter;
-            MessageBox.Show(passwordBox.Password);
+            
+            
+            
+            MainViewModel.Planner.CurrentUser = Login;
         }
 
         private bool canLogin(object parameter)
         {
-            return true;
+            PasswordBox passwordBox = (PasswordBox) parameter;
+            return Login is not null && passwordBox.Password != "";
         }
     }
 }
