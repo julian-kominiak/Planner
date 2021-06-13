@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Data;
+﻿using System.Windows;
 using Planner.Model;
 using Planner.ViewModel;
 

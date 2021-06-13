@@ -1,16 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+
 namespace Planner.ViewModel.BaseClass
 {
-    class RelayCommand : ICommand
+    internal class RelayCommand : ICommand
     {
-        public event EventHandler CanExecuteChanged 
+        private readonly Predicate<object> _canExecute;
+
+        private readonly Action<object> _execute;
+
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {
-            add 
+            _execute = execute;
+            _canExecute = canExecute;
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add
             {
                 if (_canExecute != null) CommandManager.RequerySuggested += value;
             }
@@ -18,16 +25,6 @@ namespace Planner.ViewModel.BaseClass
             {
                 if (_canExecute != null) CommandManager.RequerySuggested -= value;
             }
-            
-        }
-
-        readonly Action<object> _execute;
-        readonly Predicate<object> _canExecute;
-
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
-        {
-            _execute = execute;
-            _canExecute = canExecute;
         }
 
         public bool CanExecute(object parameter)

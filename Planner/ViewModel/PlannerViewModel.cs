@@ -1,31 +1,43 @@
-﻿using Planner.ViewModel.BaseClass;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using Planner.Data;
 using Planner.Model;
 using Planner.View;
+using Planner.ViewModel.BaseClass;
 
 namespace Planner.ViewModel
 {
-    class PlannerViewModel : ViewModelBase
+    internal class PlannerViewModel : ViewModelBase
     {
+        private ICommand _addEvent;
+
+        private EventFormView _addView;
+
+        private ICommand _deleteEvent;
+
+        private ICommand _editEvent;
+
+        private EventFormView _editView;
+
+        private List<Event> _itemsSource;
+
+        private string _label;
+
+        private DateTime _selectedDate;
+
+        private Event _selectedItem;
+
+        private string _tooltip;
+
         public PlannerViewModel()
         {
             SelectedDate = DateTime.Now;
         }
 
-        private DateTime _selectedDate;
         public DateTime SelectedDate
         {
-            get { return _selectedDate; }
+            get => _selectedDate;
             set
             {
                 SetProperty(ref _selectedDate, value);
@@ -35,59 +47,30 @@ namespace Planner.ViewModel
             }
         }
 
-        public void updateListBox()
-        {
-            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date);
-        }
-        
-        private static string formatLabel(DateTime dateTime)
-        {
-            return "Events for " + dateTime.ToString("MM/dd/yyyy");;
-        }
-        
-        private string _label;
         public string Label
         {
-            get { return _label; }
-            set
-            {
-                SetProperty(ref _label, value);
-            }
+            get => _label;
+            set => SetProperty(ref _label, value);
         }
-
-        private List<Event> _itemsSource;
 
         public List<Event> ItemsSource
         {
-            get { return _itemsSource; }
-            set
-            {
-                SetProperty(ref _itemsSource, value);
-            }
+            get => _itemsSource;
+            set => SetProperty(ref _itemsSource, value);
         }
 
-        private Event _selectedItem;
         public Event SelectedItem
         {
-            get { return _selectedItem; }
-            set
-            {
-                SetProperty(ref _selectedItem, value);
-            }
+            get => _selectedItem;
+            set => SetProperty(ref _selectedItem, value);
         }
-
-        private string _tooltip;
 
         public string Tooltip
         {
-            get { return _tooltip; }
-            set
-            {
-                SetProperty(ref _tooltip, value);
-            }
+            get => _tooltip;
+            set => SetProperty(ref _tooltip, value);
         }
 
-        private ICommand _addEvent;
         public ICommand AddEvent
         {
             get
@@ -97,15 +80,44 @@ namespace Planner.ViewModel
             }
         }
 
-        private EventFormView _addView;
-
         public EventFormView AddView
         {
-            get { return _addView; }
-            set
+            get => _addView;
+            set => SetProperty(ref _addView, value);
+        }
+
+        public ICommand EditEvent
+        {
+            get
             {
-                SetProperty(ref _addView, value);
+                return _editEvent ??= new RelayCommand(
+                    arg => OpenEditEventForm(), arg => SelectedItem != null);
             }
+        }
+
+        public EventFormView EditView
+        {
+            get => _editView;
+            set => SetProperty(ref _editView, value);
+        }
+
+        public ICommand DeleteEvent
+        {
+            get
+            {
+                return _deleteEvent ??= new RelayCommand
+                    (arg => PerformDeleteEventAction(), arg => SelectedItem != null);
+            }
+        }
+
+        public void updateListBox()
+        {
+            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date);
+        }
+
+        private static string formatLabel(DateTime dateTime)
+        {
+            return "Events for " + dateTime.ToString("yyyy/MM/dd");
         }
 
         private void OpenAddEventForm()
@@ -115,44 +127,10 @@ namespace Planner.ViewModel
             AddView.Focus();
         }
 
-        private ICommand _editEvent;
-
-        public ICommand EditEvent
-        {
-            get
-            {
-                return _editEvent ??= new RelayCommand(
-                    arg=>OpenEditEventForm(), arg=> SelectedItem != null);
-            }
-        }
-        
-        private EventFormView _editView;
-
-        public EventFormView EditView
-        {
-            get { return _editView; }
-            set
-            {
-                SetProperty(ref _editView, value);
-            }
-        }
-
         private void OpenEditEventForm()
         {
-            
-            
             EditView = new EventFormView(SelectedItem);
             EditView.ShowDialog();
-        }
-
-        private ICommand _deleteEvent;
-        public ICommand DeleteEvent
-        {
-            get
-            {
-                return _deleteEvent ??= new RelayCommand
-                    (arg => PerformDeleteEventAction(), arg => SelectedItem != null);
-            }
         }
 
         private void PerformDeleteEventAction()

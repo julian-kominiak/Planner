@@ -3,19 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Planner"
         xmlns:qv="clr-namespace:Planner.View"
         xmlns:vm="clr-namespace:Planner.ViewModel"
         mc:Ignorable="d"
         Title="Planner" Height="450" Width="800" ResizeMode="NoResize">
     <Window.Background>
-        <SolidColorBrush Color="#292929"/>
+        <SolidColorBrush Color="#292929" />
     </Window.Background>
 
 
-    
     <Window.DataContext>
-        <vm:MainViewModel/>
+        <vm:MainViewModel />
     </Window.DataContext>
 
     <qv:PlannerView
@@ -26,5 +24,5 @@
         SelectedItem="{Binding Path=Planner.SelectedItem, Mode=TwoWay}"
         AddEvent="{Binding Path=Planner.AddEvent}"
         EditEvent="{Binding Path=Planner.EditEvent}"
-        DeleteEvent="{Binding Path=Planner.DeleteEvent}"/>
+        DeleteEvent="{Binding Path=Planner.DeleteEvent}" />
 </Window>

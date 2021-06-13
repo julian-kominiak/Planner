@@ -1,21 +1,30 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Windows;
 using System.Windows.Input;
-using Planner.Model;
 using Planner.Data;
-using Planner.View;
+using Planner.Model;
 using Planner.ViewModel.BaseClass;
 
 namespace Planner.ViewModel
 {
-    public class EventFormViewModel: ViewModelBase
+    public class EventFormViewModel : ViewModelBase
     {
-        
-        
+        private DateTime _date;
+
+        private string _description;
+
+        private Event _oldEvent;
+
+        private ICommand _saveEvent;
+
+        private Priority _selectedPriority;
+
+        private string _title;
+
+        private string _windowTitle;
+
+
         public EventFormViewModel()
         {
             WindowTitle = "Add event";
@@ -31,113 +40,79 @@ namespace Planner.ViewModel
             SelectedPriority = @event.Priority;
             OldEvent = @event;
         }
-        
-        private Event _oldEvent;
 
         public Event OldEvent
         {
-            get { return _oldEvent; }
-            set
-            {
-                SetProperty(ref _oldEvent, value);
-            }
+            get => _oldEvent;
+            set => SetProperty(ref _oldEvent, value);
         }
-
-        private string _windowTitle;
 
         public string WindowTitle
         {
-            get { return _windowTitle; }
-            set
-            {
-                SetProperty(ref _windowTitle, value);
-            }
+            get => _windowTitle;
+            set => SetProperty(ref _windowTitle, value);
         }
-        
-        private string _title;
 
         public string Title
         {
-            get { return _title; }
-            set
-            {
-                SetProperty(ref _title, value);
-            }
+            get => _title;
+            set => SetProperty(ref _title, value);
         }
-
-        private string _description;
 
         public string Description
         {
-            get { return _description; }
-            set
-            {
-                SetProperty(ref _description, value);
-            }
+            get => _description;
+            set => SetProperty(ref _description, value);
         }
-
-        private DateTime _date;
 
         public DateTime Date
         {
-            get { return _date; }
-            set
-            {
-                SetProperty(ref _date, value);
-            }
+            get => _date;
+            set => SetProperty(ref _date, value);
         }
 
-        public IEnumerable<Priority> PriorityEnumValues
-        {
-            get
-            {
-                return Enum.GetValues(typeof(Priority))
-                    .Cast<Priority>();
-            }
-        }
+        public IEnumerable<Priority> PriorityEnumValues =>
+            Enum.GetValues(typeof(Priority))
+                .Cast<Priority>();
 
-        private Priority _selectedPriority;
         public Priority SelectedPriority
         {
-            get { return _selectedPriority; }
-            set { 
+            get => _selectedPriority;
+            set
+            {
                 _selectedPriority = value;
-                OnPropertyChanged("SelectedPriority");
+                OnPropertyChanged();
             }
         }
-        
-        private ICommand _saveEvent;
 
         public ICommand SaveEvent
         {
             get
             {
                 return _saveEvent ??= new RelayCommand(
-                    arg=>PerformSaveEventAction(), arg=>(Title is not null));
+                    arg => PerformSaveEventAction(), arg => Title is not null);
             }
         }
 
         private void PerformSaveEventAction()
         {
-            Event NewEvent = new Event(Title, Description, Date.Date, SelectedPriority);
+            var NewEvent = new Event(Title, Description, Date.Date, SelectedPriority);
             if (OldEvent is not null)
             {
                 PerformEditEventAction(NewEvent);
                 return;
             }
+
             EventsDTO.addEvent(NewEvent);
             MainViewModel.Planner.updateListBox();
             MainViewModel.Planner.AddView.Close();
-            
         }
 
-        private void PerformEditEventAction(Event @NewEvent)
+        private void PerformEditEventAction(Event NewEvent)
         {
             EventsDTO.editEvent(OldEvent, NewEvent);
             MainViewModel.Planner.updateListBox();
             MainViewModel.Planner.EditView.Close();
         }
-        
-
     }
 }

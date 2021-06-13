@@ -3,21 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Planner.View"
-             xmlns:vm="clr-namespace:Planner.ViewModel"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800" Background="Transparent" FontFamily="Lucida Sans">
 
     <UserControl.Resources>
-        <Style x:Key="CalendarDayButtons" TargetType="{x:Type CalendarDayButton}">
-            <Setter Property="Foreground" Value="White"/>
-        </Style>
         <Style x:Key="CalendarButtons" TargetType="{x:Type CalendarButton}">
-            <Setter Property="Background" Value="Aqua"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Aqua" />
+            <Setter Property="Foreground" Value="White" />
         </Style>
         <Style x:Key="Calendar" TargetType="{x:Type Calendar}">
-            <Setter Property="Background" Value="White"/>
+            <Setter Property="Background" Value="White" />
         </Style>
     </UserControl.Resources>
 
@@ -58,21 +53,20 @@
                           VerticalAlignment="Center"
                           Background="DarkGray"
                           SelectedDate="{Binding Path=SelectedDate,
-            RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+            RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
 
             </Viewbox>
             <ListView x:Name="MyListView"
-                     Grid.Column="1"
-                     Margin="40 5 40 45"
-                     Background="#292929"
-                     Foreground="DarkGray"
-                     FontFamily="Lucida Sans"
-                     FontSize="20"
-                     ItemsSource="{Binding Path=ItemsSource,
+                      Grid.Column="1"
+                      Margin="40 5 40 45"
+                      Background="#292929"
+                      Foreground="DarkGray"
+                      FontFamily="Lucida Sans"
+                      FontSize="20"
+                      ItemsSource="{Binding Path=ItemsSource,
                      RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                     SelectedItem="{Binding Path=SelectedItem,
-                     RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                     >
+                      SelectedItem="{Binding Path=SelectedItem,
+                     RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}">
@@ -95,8 +89,7 @@
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10"
                     Command="{Binding Path=AddEvent,
-                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
-            </Button>
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
             <Button Grid.Column="1" Content="Edit"
                     VerticalAlignment="Top" Height="29" Width="100"
                     Margin="10 0 10 10"
