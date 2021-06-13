@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using MySqlConnector;
 using Planner.Model;
 
@@ -7,8 +8,6 @@ namespace Planner.Data
 {
     public static class EventsDTO
     {
-        private static readonly List<Event> _events = new();
-
         private static readonly MySqlConnectionStringBuilder connStrBuilder = new()
         {
             UserID = "sql11418815",
@@ -57,13 +56,33 @@ namespace Planner.Data
 
         public static void deleteEvent(Event @event)
         {
-            _events.RemoveAll(x => x.Equals(@event));
+            var query = "DELETE FROM events WHERE " + 
+                        "title = '" + @event.Title + "' AND " +
+                        "description = '" + @event.Description + "' AND " +
+                        "date = '" + @event.Date.Date.ToString("yyyy-MM-dd") + "' AND " +
+                        "priority = '" + @event.Priority + "'";
+            var command = new MySqlCommand(query, connection);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static void editEvent(Event OldEvent, Event NewEvent)
+        public static void editEvent(Event @OldEvent, Event @NewEvent)
         {
-            _events.Remove(OldEvent);
-            _events.Add(NewEvent);
+            var query = "UPDATE events " + 
+                        "SET title = '" + @NewEvent.Title + "', " +
+                        "description = '" + @NewEvent.Description + "', " +
+                        "date = '" + @NewEvent.Date.Date.ToString("yyyy-MM-dd") + "', " +
+                        "priority = '" + @NewEvent.Priority + "' " +
+                        "WHERE " +
+                        "title = '" + @OldEvent.Title + "' AND " +
+                        "description = '" + @OldEvent.Description + "' AND " +
+                        "date = '" + @OldEvent.Date.Date.ToString("yyyy-MM-dd") + "' AND " +
+                        "priority = '" + @OldEvent.Priority + "'";
+            var command = new MySqlCommand(query, connection);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }
