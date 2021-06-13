@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Planner.View"
         xmlns:vm="clr-namespace:Planner.ViewModel"
         mc:Ignorable="d"
-        Title="{Binding WindowTitle}" Height="500" Width="400" FontFamily="Lucida Sans" Foreground="White" Background="#FF292929"
+        Title="{Binding WindowTitle}" Height="500" Width="600" FontFamily="Lucida Sans" Foreground="White" Background="#FF292929"
         ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="FormLabels" TargetType="Label">
