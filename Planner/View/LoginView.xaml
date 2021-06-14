@@ -39,7 +39,8 @@
                      Background="#292929"
                      Foreground="DarkGray"
                      FontSize="20"
-                     Height="30" />
+                     Height="30"
+                     BorderBrush="{Binding LoginLabelBrush}"/>
         </Grid>
         
         <Grid Grid.Row="1">
@@ -57,7 +58,8 @@
                      Background="#292929"
                      Foreground="DarkGray"
                      FontSize="20"
-                     Height="30">
+                     Height="30"
+                     BorderBrush="{Binding PasswordBoxBrush}">
             </PasswordBox>
         </Grid>
         

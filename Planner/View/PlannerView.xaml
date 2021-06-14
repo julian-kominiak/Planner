@@ -40,6 +40,8 @@
                    Foreground="DarkGray"/>
             
             <Button Grid.Column="0" Content="Change User" Height="29" Width="100"
+                    Command="{Binding Path=ChangeUser,
+            RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Margin="10 0 50 10"/>

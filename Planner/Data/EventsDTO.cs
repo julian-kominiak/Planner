@@ -8,17 +8,6 @@ namespace Planner.Data
 {
     public static class EventsDTO
     {
-        private static readonly MySqlConnectionStringBuilder connStrBuilder = new()
-        {
-            UserID = "sql11418815",
-            Password = "ExK1zwX5gp",
-            Server = "sql11.freemysqlhosting.net",
-            Database = "sql11418815",
-            Port = 3306
-        };
-
-        private static readonly MySqlConnection connection = new(connStrBuilder.ToString());
-
         public static void addEvent(Event @event)
         {
             var query = "INSERT INTO events (title, description, date, priority, user_id) VALUES " +
@@ -26,11 +15,12 @@ namespace Planner.Data
                         "'" + @event.Description + "', " +
                         "'" + @event.Date.Date.ToString("yyyy-MM-dd") + "', " +
                         "'" + @event.Priority + "', " +
-                        "1);";
-            var command = new MySqlCommand(query, connection);
-            connection.Open();
+                        "2);";
+            MessageBox.Show(query);
+            var command = new MySqlCommand(query, DatabaseConnector.connection);
+            DatabaseConnector.connection.Open();
             command.ExecuteNonQuery();
-            connection.Close();
+            DatabaseConnector.connection.Close();
         }
 
         public static List<Event> getEventsForDate(DateTime dateTime)
@@ -40,8 +30,8 @@ namespace Planner.Data
             var query = "SELECT title, description, date, priority FROM events WHERE date = "
                         + "'" + dateTime.Date.ToString("yyyy-MM-dd") + "'";
 
-            var command = new MySqlCommand(query, connection);
-            connection.Open();
+            var command = new MySqlCommand(query, DatabaseConnector.connection);
+            DatabaseConnector.connection.Open();
             var dataReader = command.ExecuteReader();
             if (dataReader.HasRows)
                 while (dataReader.Read())
@@ -49,7 +39,7 @@ namespace Planner.Data
                         dataReader["description"].ToString(),
                         (DateTime) dataReader["date"],
                         Enum.Parse<Priority>(dataReader["priority"].ToString()!)));
-            connection.Close();
+            DatabaseConnector.connection.Close();
 
             return eventsForDate;
         }
@@ -61,10 +51,10 @@ namespace Planner.Data
                         "description = '" + @event.Description + "' AND " +
                         "date = '" + @event.Date.Date.ToString("yyyy-MM-dd") + "' AND " +
                         "priority = '" + @event.Priority + "'";
-            var command = new MySqlCommand(query, connection);
-            connection.Open();
+            var command = new MySqlCommand(query, DatabaseConnector.connection);
+            DatabaseConnector.connection.Open();
             command.ExecuteNonQuery();
-            connection.Close();
+            DatabaseConnector.connection.Close();
         }
 
         public static void editEvent(Event @OldEvent, Event @NewEvent)
@@ -79,10 +69,10 @@ namespace Planner.Data
                         "description = '" + @OldEvent.Description + "' AND " +
                         "date = '" + @OldEvent.Date.Date.ToString("yyyy-MM-dd") + "' AND " +
                         "priority = '" + @OldEvent.Priority + "'";
-            var command = new MySqlCommand(query, connection);
-            connection.Open();
+            var command = new MySqlCommand(query, DatabaseConnector.connection);
+            DatabaseConnector.connection.Open();
             command.ExecuteNonQuery();
-            connection.Close();
+            DatabaseConnector.connection.Close();
         }
     }
 }

@@ -8,8 +8,6 @@ namespace Planner
         public MainWindow()
         {
             InitializeComponent();
-            LoginView loginView = new LoginView();
-            loginView.Show();
         }
     }
 }

@@ -20,6 +20,10 @@ namespace Planner.ViewModel
 
         private EventFormView _editView;
 
+        private LoginView _loginView;
+
+        private ICommand _changeUser;
+
         private List<Event> _itemsSource;
 
         private string _label;
@@ -78,6 +82,28 @@ namespace Planner.ViewModel
         {
             get => _tooltip;
             set => SetProperty(ref _tooltip, value);
+        }
+
+        public ICommand ChangeUser
+        {
+            get
+            {
+                return _changeUser ??= new RelayCommand
+                    (arg => OpenLoginView(), arg => true);
+            }
+        }
+
+        public LoginView LoginView
+        {
+            get => _loginView;
+            set => SetProperty(ref _loginView, value);
+        }
+        
+        private void OpenLoginView()
+        {
+            LoginView = new LoginView();
+            LoginView.ShowDialog();
+            LoginView.Focus();
         }
 
         public ICommand AddEvent

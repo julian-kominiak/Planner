@@ -35,6 +35,9 @@ namespace Planner.View
         
         public static readonly DependencyProperty CurrentUserProperty =
             DependencyProperty.Register("CurrentUser", typeof(string), typeof(PlannerView));
+        
+        public static readonly DependencyProperty ChangeUserProperty =
+            DependencyProperty.Register("ChangeUser", typeof(ICommand), typeof(PlannerView));
 
         public PlannerView()
         {
@@ -93,6 +96,12 @@ namespace Planner.View
         {
             get => (string) GetValue(CurrentUserProperty);
             set => SetValue(CurrentUserProperty, value);
+        }
+        
+        public ICommand ChangeUser
+        {
+            get => (ICommand) GetValue(ChangeUserProperty);
+            set => SetValue(ChangeUserProperty, value);
         }
     }
 }
