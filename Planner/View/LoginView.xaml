@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:qv="clr-namespace:Planner.View"
         mc:Ignorable="d"
-        Title="Login" Height="250" Width="300" FontFamily="Lucida Sans" Foreground="White"
+        Title="Login" Height="300" Width="300" FontFamily="Lucida Sans" Foreground="White"
         Background="#FF292929" ResizeMode="NoResize"
         WindowStyle="None">
     <Window.Resources>
@@ -23,10 +23,9 @@
             <RowDefinition Height="90*"/>
         </Grid.RowDefinitions>
         
-        <qv:TitleBar Grid.Row="0"/>
+        <qv:TitleBar Grid.Row="0" BarTitle="Login"/>
     <Grid Grid.Row="1">
         <Grid.RowDefinitions>
-            <RowDefinition Height="6*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
@@ -79,12 +78,12 @@
             
             <Button Grid.Column="0" Content="Create Account"
                     VerticalAlignment="Center" Height="29" Width="100"
-                    Margin="10 0 10 10"
+                    Margin="10 10 10 0"
                     Command="{Binding Path=CreateAccountButton}"
                     CommandParameter="{Binding ElementName=PasswordBox}"/>
             <Button Grid.Column="1" Content="Login"
                     VerticalAlignment="Center" Height="29" Width="100"
-                    Margin="10 0 10 10"
+                    Margin="10 10 10 0"
                     Command="{Binding Path=LoginButton}"
                     CommandParameter="{Binding ElementName=PasswordBox}"/>
         </Grid>
