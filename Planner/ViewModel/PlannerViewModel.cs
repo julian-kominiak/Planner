@@ -160,7 +160,7 @@ namespace Planner.ViewModel
 
         private static string formatLabel(DateTime dateTime)
         {
-            return "Events for " + dateTime.ToString("yyyy/MM/dd");
+            return "Events for " + dateTime.ToString("dd/MM/yyyy");
         }
 
         private void OpenAddEventForm()
