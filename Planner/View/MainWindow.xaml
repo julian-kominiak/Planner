@@ -1,4 +1,4 @@
-﻿<Window x:Class="Planner.MainWindow"
+﻿<Window x:Class="Planner.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,31 +10,31 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None">
     <Window.Background>
-        <SolidColorBrush Color="#292929"/>
+        <SolidColorBrush Color="#292929" />
     </Window.Background>
 
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="94*"/>
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="94*" />
         </Grid.RowDefinitions>
 
-        <qv:TitleBar Grid.Row="0" BarTitle="Planner"/>
-        
+        <qv:TitleBar Grid.Row="0" BarTitle="Planner" />
+
         <qv:PlannerView Grid.Row="1"
-        SelectedDate="{Binding Path=Planner.SelectedDate, Mode=TwoWay}"
-        Label="{Binding Path=Planner.Label, Mode=TwoWay}"
-        CurrentUser="{Binding Path=Planner.CurrentUser, Mode=TwoWay}"
-        ChangeUser="{Binding Path=Planner.ChangeUser}"
-        ItemsSource="{Binding Path=Planner.ItemsSource, Mode=TwoWay}"
-        Tooltip="{Binding Path=Planner.Tooltip}"
-        SelectedItem="{Binding Path=Planner.SelectedItem, Mode=TwoWay}"
-        AddEvent="{Binding Path=Planner.AddEvent}"
-        EditEvent="{Binding Path=Planner.EditEvent}"
-        DeleteEvent="{Binding Path=Planner.DeleteEvent}" />
+                        SelectedDate="{Binding Path=Planner.SelectedDate, Mode=TwoWay}"
+                        Label="{Binding Path=Planner.Label, Mode=TwoWay}"
+                        CurrentUser="{Binding Path=Planner.CurrentUser, Mode=TwoWay}"
+                        ChangeUser="{Binding Path=Planner.ChangeUser}"
+                        ItemsSource="{Binding Path=Planner.ItemsSource, Mode=TwoWay}"
+                        Tooltip="{Binding Path=Planner.Tooltip}"
+                        SelectedItem="{Binding Path=Planner.SelectedItem, Mode=TwoWay}"
+                        AddEvent="{Binding Path=Planner.AddEvent}"
+                        EditEvent="{Binding Path=Planner.EditEvent}"
+                        DeleteEvent="{Binding Path=Planner.DeleteEvent}" />
     </Grid>
 </Window>

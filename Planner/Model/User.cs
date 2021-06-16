@@ -4,16 +4,16 @@ namespace Planner.Model
 {
     public class User
     {
-        public string Login { get; set; }
-        public string Password { get; set; }
-
         public User(string login, string password)
         {
             Login = login;
             Password = password;
         }
 
-        protected bool Equals(User other)
+        public string Login { get; }
+        public string Password { get; }
+
+        private bool Equals(User other)
         {
             return Login == other.Login && Password == other.Password;
         }
@@ -22,8 +22,7 @@ namespace Planner.Model
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
-            return Equals((User) obj);
+            return obj.GetType() == GetType() && Equals((User) obj);
         }
 
         public override int GetHashCode()

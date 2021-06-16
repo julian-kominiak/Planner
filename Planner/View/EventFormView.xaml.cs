@@ -1,10 +1,9 @@
-﻿using System.Windows;
-using Planner.Model;
+﻿using Planner.Model;
 using Planner.ViewModel;
 
 namespace Planner.View
 {
-    public partial class EventFormView : Window
+    public partial class EventFormView
     {
         public EventFormView()
         {

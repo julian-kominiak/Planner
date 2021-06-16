@@ -20,63 +20,63 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="95*"/>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="95*" />
         </Grid.RowDefinitions>
-        
-        <qv:TitleBar Grid.Row="0" BarTitle="Event Form"/>
-        
+
+        <qv:TitleBar Grid.Row="0" BarTitle="Event Form" />
+
         <Grid Grid.Row="1" Margin="5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="8*" />
-            <RowDefinition Height="2*" />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*" />
-                <RowDefinition Height="8*" />
-                <RowDefinition Height="8*" />
-                <RowDefinition Height="8*" />
+                <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="6*" />
-            </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Content="Name" Style="{StaticResource FormLabels}" />
-            <Label Grid.Row="1" Grid.Column="0" Content="Description" Style="{StaticResource FormLabels}" />
-            <Label Grid.Row="2" Grid.Column="0" Content="Date" Style="{StaticResource FormLabels}" />
-            <Label Grid.Row="3" Grid.Column="0" Content="Priority" Style="{StaticResource FormLabels}" />
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="8*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="6*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Name" Style="{StaticResource FormLabels}" />
+                <Label Grid.Row="1" Grid.Column="0" Content="Description" Style="{StaticResource FormLabels}" />
+                <Label Grid.Row="2" Grid.Column="0" Content="Date" Style="{StaticResource FormLabels}" />
+                <Label Grid.Row="3" Grid.Column="0" Content="Priority" Style="{StaticResource FormLabels}" />
 
-            <TextBox Grid.Row="0" Grid.Column="1" Margin="5 10 5 10"
-                     VerticalContentAlignment="Center"
-                     Text="{Binding Title}"
-                     Background="#292929"
-                     Foreground="DarkGray"
-                     FontSize="20"
-                     Height="30" />
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="5 10 5 10" VerticalContentAlignment="Center"
-                     Text="{Binding Description}"
-                     Background="#292929"
-                     Foreground="DarkGray"
-                     FontSize="20"
-                     Height="30" />
-            <Viewbox Grid.Row="2" Grid.Column="1" Margin="5 10 5 10" Height="40">
-                <DatePicker SelectedDate="{Binding Date}"
-                            Background="#292929"
-                            FontSize="20"
-                            Height="40"
-                            Width="420"/>
-            </Viewbox>
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="5 10 5 10"
+                         VerticalContentAlignment="Center"
+                         Text="{Binding Title}"
+                         Background="#292929"
+                         Foreground="DarkGray"
+                         FontSize="20"
+                         Height="30" />
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="5 10 5 10" VerticalContentAlignment="Center"
+                         Text="{Binding Description}"
+                         Background="#292929"
+                         Foreground="DarkGray"
+                         FontSize="20"
+                         Height="30" />
+                <Viewbox Grid.Row="2" Grid.Column="1" Margin="5 10 5 10" Height="40">
+                    <DatePicker SelectedDate="{Binding Date}"
+                                Background="#292929"
+                                FontSize="20"
+                                Height="40"
+                                Width="420" />
+                </Viewbox>
 
-            <ComboBox Grid.Row="3" Grid.Column="1" Margin="5 10 5 10"
-                      ItemsSource="{Binding PriorityEnumValues}"
-                      SelectedItem="{Binding SelectedPriority}"
-                      Background="#292929"
-                      FontSize="20"
-                      Height="30" />
+                <ComboBox Grid.Row="3" Grid.Column="1" Margin="5 10 5 10"
+                          ItemsSource="{Binding PriorityEnumValues}"
+                          SelectedItem="{Binding SelectedPriority}"
+                          Background="#292929"
+                          FontSize="20"
+                          Height="30" />
+            </Grid>
+            <Button Grid.Row="1" Margin="5 25" Content="Save"
+                    Command="{Binding SaveEvent}" Width="100" Height="30" />
         </Grid>
-        <Button Grid.Row="1" Margin="5 25" Content="Save"
-                Command="{Binding SaveEvent}" Width="100" Height="30" />
-    </Grid>
     </Grid>
 </Window>

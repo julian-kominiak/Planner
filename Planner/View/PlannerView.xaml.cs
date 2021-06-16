@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using Planner.Model;
 
 namespace Planner.View
 {
-    public partial class PlannerView : UserControl
+    public partial class PlannerView
     {
         public static readonly DependencyProperty SelectedDateProperty =
             DependencyProperty.Register("SelectedDate", typeof(DateTime), typeof(PlannerView));
@@ -32,10 +31,10 @@ namespace Planner.View
 
         public static readonly DependencyProperty DeleteEventProperty =
             DependencyProperty.Register("DeleteEvent", typeof(ICommand), typeof(PlannerView));
-        
+
         public static readonly DependencyProperty CurrentUserProperty =
             DependencyProperty.Register("CurrentUser", typeof(string), typeof(PlannerView));
-        
+
         public static readonly DependencyProperty ChangeUserProperty =
             DependencyProperty.Register("ChangeUser", typeof(ICommand), typeof(PlannerView));
 
@@ -91,13 +90,13 @@ namespace Planner.View
             get => (ICommand) GetValue(DeleteEventProperty);
             set => SetValue(DeleteEventProperty, value);
         }
-        
+
         public string CurrentUser
         {
             get => (string) GetValue(CurrentUserProperty);
             set => SetValue(CurrentUserProperty, value);
         }
-        
+
         public ICommand ChangeUser
         {
             get => (ICommand) GetValue(ChangeUserProperty);

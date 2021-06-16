@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Planner.Data;
@@ -11,16 +9,15 @@ namespace Planner.ViewModel
 {
     public class LoginViewModel : ViewModelBase
     {
-        private string _login;
-
         private ICommand _createAccountButton;
+        private string _login;
 
         private ICommand _loginButton;
 
         private Brush _loginLabelBrush;
-        
+
         private Brush _passwordBoxBrush;
-        
+
         public string Login
         {
             get => _login;
@@ -36,19 +33,49 @@ namespace Planner.ViewModel
         {
             get
             {
-                if (_loginButton == null)
-                {
-                    _loginButton = new RelayCommand(PerformLoginAction, CanLogin);
-                }
+                if (_loginButton == null) _loginButton = new RelayCommand(PerformLoginAction, CanLogin);
 
                 return _loginButton;
             }
         }
 
+        public Brush LoginLabelBrush
+        {
+            get
+            {
+                if (_loginLabelBrush == null) return _loginLabelBrush = Brushes.DarkGray;
+
+                return _loginLabelBrush;
+            }
+            set => SetProperty(ref _loginLabelBrush, value);
+        }
+
+        public Brush PasswordBoxBrush
+        {
+            get
+            {
+                if (_passwordBoxBrush == null) return _passwordBoxBrush = Brushes.DarkGray;
+
+                return _passwordBoxBrush;
+            }
+            set => SetProperty(ref _passwordBoxBrush, value);
+        }
+
+        public ICommand CreateAccountButton
+        {
+            get
+            {
+                if (_createAccountButton == null)
+                    _createAccountButton = new RelayCommand(PerformCreateAccountAction, CanLogin);
+
+                return _createAccountButton;
+            }
+        }
+
         private void PerformLoginAction(object parameter)
         {
-            PasswordBox passwordBox = (PasswordBox) parameter;
-            User user = new User(Login, passwordBox.Password);
+            var passwordBox = (PasswordBox) parameter;
+            var user = new User(Login, passwordBox.Password);
             if (UsersDTO.checkIfUserExists(user))
             {
                 MainViewModel.Planner.CurrentUser = Login;
@@ -62,36 +89,8 @@ namespace Planner.ViewModel
 
         private bool CanLogin(object parameter)
         {
-            PasswordBox passwordBox = (PasswordBox) parameter;
+            var passwordBox = (PasswordBox) parameter;
             return Login is not null && passwordBox.Password != "";
-        }
-
-        public Brush LoginLabelBrush
-        {
-            get
-            {
-                if (_loginLabelBrush == null)
-                {
-                    return _loginLabelBrush = Brushes.DarkGray;
-                }
-
-                return _loginLabelBrush;
-            }
-            set => SetProperty(ref _loginLabelBrush, value);
-        }
-        
-        public Brush PasswordBoxBrush
-        {
-            get
-            {
-                if (_passwordBoxBrush == null)
-                {
-                    return _passwordBoxBrush = Brushes.DarkGray;
-                }
-
-                return _passwordBoxBrush;
-            }
-            set => SetProperty(ref _passwordBoxBrush, value);
         }
 
         private void WrongCredentials(PasswordBox passwordBox)
@@ -101,24 +100,11 @@ namespace Planner.ViewModel
             LoginLabelBrush = Brushes.Red;
             passwordBox.BorderBrush = Brushes.Red;
         }
-        
-        public ICommand CreateAccountButton
-        {
-            get
-            {
-                if (_createAccountButton == null)
-                {
-                    _createAccountButton = new RelayCommand(PerformCreateAccountAction, CanLogin);
-                }
-
-                return _createAccountButton;
-            }
-        }
 
         private void PerformCreateAccountAction(object parameter)
         {
-            PasswordBox passwordBox = (PasswordBox) parameter;
-            User user = new User(Login, passwordBox.Password);
+            var passwordBox = (PasswordBox) parameter;
+            var user = new User(Login, passwordBox.Password);
 
             if (UsersDTO.checkIfUserExists(user))
             {
