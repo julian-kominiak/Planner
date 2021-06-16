@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Input;
 using Planner.Data;
 using Planner.Model;
@@ -39,7 +40,7 @@ namespace Planner.ViewModel
         public PlannerViewModel()
         {
             SelectedDate = DateTime.Now;
-            CurrentUser = "Karbid";
+            CurrentUser = "Marek";
         }
 
         public DateTime SelectedDate
@@ -147,7 +148,7 @@ namespace Planner.ViewModel
 
         public void updateListBox()
         {
-            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date);
+            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date, CurrentUser);
         }
 
         private static string formatLabel(DateTime dateTime)
@@ -170,8 +171,8 @@ namespace Planner.ViewModel
 
         private void PerformDeleteEventAction()
         {
-            EventsDTO.deleteEvent(SelectedItem);
-            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date);
+            EventsDTO.deleteEvent(SelectedItem, CurrentUser);
+            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date, CurrentUser);
         }
     }
 }
