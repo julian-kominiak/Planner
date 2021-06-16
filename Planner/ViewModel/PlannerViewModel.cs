@@ -67,7 +67,11 @@ namespace Planner.ViewModel
         public string CurrentUser
         {
             get => _currentUser;
-            set => SetProperty(ref _currentUser, value);
+            set
+            {
+                SetProperty(ref _currentUser, value);
+                updateListBox();
+            }
         }
 
         public List<Event> ItemsSource
