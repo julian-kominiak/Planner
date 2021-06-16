@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:qv='clr-namespace:Planner.View'
         mc:Ignorable="d"
-        Title="{Binding WindowTitle}" Height="450" Width="600" FontFamily="Lucida Sans" Foreground="White"
+        Height="450" Width="600" FontFamily="Lucida Sans" Foreground="White"
         Background="#FF292929"
         ResizeMode="NoResize"
         WindowStyle="None">
@@ -24,7 +24,7 @@
             <RowDefinition Height="95*"/>
         </Grid.RowDefinitions>
         
-        <qv:TitleBar Grid.Row="0"/>
+        <qv:TitleBar Grid.Row="0" BarTitle="Event Form"/>
         
         <Grid Grid.Row="1" Margin="5">
         <Grid.RowDefinitions>

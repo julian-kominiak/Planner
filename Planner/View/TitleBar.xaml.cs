@@ -10,9 +10,16 @@ namespace Planner.View
         public TitleBar()
         {
             InitializeComponent();
-
         }
-
+        
+        public static readonly DependencyProperty BarTitleProperty =
+            DependencyProperty.Register("BarTitle", typeof(string), typeof(PlannerView));
+        
+        public string BarTitle
+        {
+            get => (string) GetValue(BarTitleProperty);
+            set => SetValue(BarTitleProperty, value);
+        }
         private void Bar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var myWindow = Window.GetWindow(this);
