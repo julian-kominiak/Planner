@@ -7,29 +7,29 @@ namespace Planner.View
 {
     public partial class TitleBar : UserControl
     {
-        private Window currentWindow;
         public TitleBar()
         {
             InitializeComponent();
-            currentWindow = Window.GetWindow(this);
-            
+
         }
 
         private void Bar_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            var myWindow = Window.GetWindow(this);
             if(e.ChangedButton == MouseButton.Left)
-                currentWindow.DragMove();
+                myWindow?.DragMove();
         }
         
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            if (currentWindow.Title == "Planner")
+            var myWindow = Window.GetWindow(this);
+            if (myWindow?.Title == "Planner")
             {
                 Application.Current.Shutdown();
             }
             else
             {
-                currentWindow.Close();
+                myWindow?.Close();
             }
         }
     }

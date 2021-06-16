@@ -6,17 +6,26 @@
         xmlns:qv="clr-namespace:Planner.View"
         xmlns:vm="clr-namespace:Planner.ViewModel"
         mc:Ignorable="d"
-        Title="Planner" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Planner" Height="450" Width="800" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
     <Window.Background>
-        <SolidColorBrush Color="#292929" />
+        <SolidColorBrush Color="#292929"/>
     </Window.Background>
-
 
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="95*"/>
+        </Grid.RowDefinitions>
 
-    <qv:PlannerView
+        <qv:TitleBar Grid.Row="0"/>
+        
+        <qv:PlannerView Grid.Row="1"
         SelectedDate="{Binding Path=Planner.SelectedDate, Mode=TwoWay}"
         Label="{Binding Path=Planner.Label, Mode=TwoWay}"
         CurrentUser="{Binding Path=Planner.CurrentUser, Mode=TwoWay}"
@@ -27,4 +36,5 @@
         AddEvent="{Binding Path=Planner.AddEvent}"
         EditEvent="{Binding Path=Planner.EditEvent}"
         DeleteEvent="{Binding Path=Planner.DeleteEvent}" />
+    </Grid>
 </Window>

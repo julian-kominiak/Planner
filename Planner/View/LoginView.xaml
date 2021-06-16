@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:Planner.View"
+        xmlns:qv="clr-namespace:Planner.View"
         mc:Ignorable="d"
         Title="Login" Height="250" Width="300" FontFamily="Lucida Sans" Foreground="White"
-        Background="#FF292929" ResizeMode="NoResize">
+        Background="#FF292929" ResizeMode="NoResize"
+        WindowStyle="None">
     <Window.Resources>
         <Style x:Key="LoginLabels" TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Center" />
@@ -16,9 +17,16 @@
             <Setter Property="FontSize" Value="16" />
         </Style>
     </Window.Resources>
-    
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        
+        <qv:TitleBar Grid.Row="0"/>
+    <Grid Grid.Row="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
@@ -80,6 +88,6 @@
                     Command="{Binding Path=LoginButton}"
                     CommandParameter="{Binding ElementName=PasswordBox}"/>
         </Grid>
-        
+        </Grid>
     </Grid>
 </Window>

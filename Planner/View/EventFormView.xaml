@@ -3,10 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:qv='clr-namespace:Planner.View'
         mc:Ignorable="d"
         Title="{Binding WindowTitle}" Height="450" Width="600" FontFamily="Lucida Sans" Foreground="White"
         Background="#FF292929"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        WindowStyle="None">
     <Window.Resources>
         <Style x:Key="FormLabels" TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Center" />
@@ -16,8 +18,15 @@
             <Setter Property="FontSize" Value="16" />
         </Style>
     </Window.Resources>
-
-    <Grid Margin="5">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="95*"/>
+        </Grid.RowDefinitions>
+        
+        <qv:TitleBar Grid.Row="0"/>
+        
+        <Grid Grid.Row="1" Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="8*" />
             <RowDefinition Height="2*" />
@@ -68,5 +77,6 @@
         </Grid>
         <Button Grid.Row="1" Margin="5 25" Content="Save"
                 Command="{Binding SaveEvent}" Width="100" Height="30" />
+    </Grid>
     </Grid>
 </Window>
