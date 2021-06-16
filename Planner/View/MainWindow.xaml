@@ -19,11 +19,11 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="95*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="94*"/>
         </Grid.RowDefinitions>
 
-        <qv:TitleBar Grid.Row="0"/>
+        <qv:TitleBar Grid.Row="0" BarTitle="Planner"/>
         
         <qv:PlannerView Grid.Row="1"
         SelectedDate="{Binding Path=Planner.SelectedDate, Mode=TwoWay}"
