@@ -40,7 +40,10 @@ namespace Planner.ViewModel
         public PlannerViewModel()
         {
             SelectedDate = DateTime.Now;
-            CurrentUser = "Marek";
+            CurrentUser = "";
+            LoginView = new LoginView();
+            LoginView.Show();
+            LoginView.Focus();
         }
 
         public DateTime SelectedDate
