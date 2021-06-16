@@ -22,18 +22,13 @@ namespace Planner.ViewModel
 
         private string _title;
 
-        //private string _windowTitle;
-
-
         public EventFormViewModel()
         {
-            //WindowTitle = "Add event";
             Date = MainViewModel.Planner.SelectedDate;
         }
 
         public EventFormViewModel(Event @event)
         {
-            //WindowTitle = "Edit event";
             Title = @event.Title;
             Description = @event.Description;
             Date = @event.Date;
@@ -46,12 +41,6 @@ namespace Planner.ViewModel
             get => _oldEvent;
             set => SetProperty(ref _oldEvent, value);
         }
-
-        // public string WindowTitle
-        // {
-        //     get => _windowTitle;
-        //     set => SetProperty(ref _windowTitle, value);
-        // }
 
         public string Title
         {

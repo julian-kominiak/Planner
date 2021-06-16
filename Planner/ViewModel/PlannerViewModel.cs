@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
 using Planner.Data;
@@ -16,19 +15,21 @@ namespace Planner.ViewModel
 
         private EventFormView _addView;
 
+        private ICommand _changeUser;
+
+        private string _currentUser;
+
         private ICommand _deleteEvent;
 
         private ICommand _editEvent;
 
         private EventFormView _editView;
 
-        private LoginView _loginView;
-
-        private ICommand _changeUser;
-
         private List<Event> _itemsSource;
 
         private string _label;
+
+        private LoginView _loginView;
 
         private DateTime _selectedDate;
 
@@ -36,15 +37,10 @@ namespace Planner.ViewModel
 
         private string _tooltip;
 
-        private string _currentUser;
-
         public PlannerViewModel()
         {
             SelectedDate = DateTime.Now;
             CurrentUser = "";
-            LoginView = new LoginView();
-            LoginView.Show();
-            LoginView.Focus();
         }
 
         public DateTime SelectedDate
@@ -64,7 +60,7 @@ namespace Planner.ViewModel
             get => _label;
             set => SetProperty(ref _label, value);
         }
-        
+
         public string CurrentUser
         {
             get => _currentUser;
@@ -107,13 +103,6 @@ namespace Planner.ViewModel
             get => _loginView;
             set => SetProperty(ref _loginView, value);
         }
-        
-        private void OpenLoginView()
-        {
-            LoginView = new LoginView();
-            LoginView.ShowDialog();
-            LoginView.Focus();
-        }
 
         public ICommand AddEvent
         {
@@ -154,9 +143,17 @@ namespace Planner.ViewModel
             }
         }
 
+        public void OpenLoginView()
+        {
+            LoginView = new LoginView();
+            LoginView.ShowDialog();
+            LoginView.Focus();
+        }
+
         public void updateListBox()
         {
-            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date, CurrentUser).OrderByDescending(o => o.Priority).ToList();
+            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date, CurrentUser).OrderByDescending(o => o.Priority)
+                .ToList();
         }
 
         private static string formatLabel(DateTime dateTime)

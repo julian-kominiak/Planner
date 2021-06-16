@@ -22,30 +22,30 @@
             <RowDefinition Height="7*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Label 
-                   Margin="48 0 10 0 "
-                   Content="{Binding Path=CurrentUser,
+            <Label
+                Margin="48 0 10 0 "
+                Content="{Binding Path=CurrentUser,
             RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom"
-                   FontSize="24"
-                   FontFamily="Lucida Sans"
-                   Foreground="DarkGray"/>
-            
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="24"
+                FontFamily="Lucida Sans"
+                Foreground="DarkGray" />
+
             <Button Grid.Column="0" Content="Change User" Height="29" Width="100"
                     Command="{Binding Path=ChangeUser,
             RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
-                    Margin="10 0 50 10"/>
-            
+                    Margin="10 0 50 10" />
+
             <Label Grid.Column="1"
                    Content="{Binding Path=Label,
             RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"

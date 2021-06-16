@@ -12,13 +12,13 @@ namespace Planner.Model
             Priority = priority;
         }
 
-        public string Title { get; set; }
+        public string Title { get; }
 
-        public string Description { get; set; }
-        public DateTime Date { get; set; }
-        public Priority Priority { get; set; }
+        public string Description { get; }
+        public DateTime Date { get; }
+        public Priority Priority { get; }
 
-        protected bool Equals(Event other)
+        private bool Equals(Event other)
         {
             return Title == other.Title && Description == other.Description && Date.Equals(other.Date) &&
                    Priority == other.Priority;
@@ -28,8 +28,7 @@ namespace Planner.Model
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((Event) obj);
+            return obj.GetType() == GetType() && Equals((Event) obj);
         }
 
         public override int GetHashCode()

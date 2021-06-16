@@ -12,6 +12,7 @@ namespace Planner.Data
             Database = "sql11418815",
             Port = 3306
         };
-        public static readonly MySqlConnection ConnectionString = new (connStrBuilder.ToString());
+
+        public static readonly MySqlConnection ConnectionString = new(connStrBuilder.ToString());
     }
 }

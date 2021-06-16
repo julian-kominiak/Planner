@@ -3,37 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Planner.View"
              mc:Ignorable="d"
              d:DesignHeight="20" d:DesignWidth="800"
              Background="#1a1a1a">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="90*"/>
-            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="90*" />
+            <ColumnDefinition Width="10*" />
         </Grid.ColumnDefinitions>
-        <Label Foreground="White" Grid.Column="0" MouseDown="Bar_MouseDown" 
+        <Label Foreground="White" Grid.Column="0" MouseDown="Bar_MouseDown"
                Content="{Binding Path=BarTitle,
-            RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+            RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
         <Button BorderBrush="{x:Null}" Foreground="White" Grid.Column="1" Content="✖"
                 Click="CloseButton_Click"
                 Width="80"
                 HorizontalAlignment="Center">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#FF464646"/>
+                    <Setter Property="Background" Value="#FF464646" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
                                 <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Border>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="Red"/>
+                            <Setter Property="Background" Value="Red" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
