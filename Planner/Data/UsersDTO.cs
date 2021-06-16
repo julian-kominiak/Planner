@@ -11,14 +11,14 @@ namespace Planner.Data
             User existingUser = null;
             var query = "CALL GetUsersByLogin('" +
                         @user.Login + "')";
-            var command = new MySqlCommand(query, DatabaseConnector.connection);
+            var command = new MySqlCommand(query, DatabaseConnector.ConnectionString);
             
-            DatabaseConnector.connection.Open();
+            DatabaseConnector.ConnectionString.Open();
             var dataReader = command.ExecuteReader();
             if (dataReader.HasRows)
                 while (dataReader.Read())
                     existingUser = new User(dataReader["login"].ToString(), dataReader["password"].ToString());
-            DatabaseConnector.connection.Close();
+            DatabaseConnector.ConnectionString.Close();
             
             return existingUser != null && existingUser.Equals(@user);
         }
@@ -28,10 +28,10 @@ namespace Planner.Data
             var query = "CALL CreateUser('" +
                         @user.Login + "', '" +
                         @user.Password + "')";
-            var command = new MySqlCommand(query, DatabaseConnector.connection);
-            DatabaseConnector.connection.Open();
+            var command = new MySqlCommand(query, DatabaseConnector.ConnectionString);
+            DatabaseConnector.ConnectionString.Open();
             command.ExecuteNonQuery();
-            DatabaseConnector.connection.Close();
+            DatabaseConnector.ConnectionString.Close();
         }
     }
 }

@@ -103,14 +103,14 @@ namespace Planner.ViewModel
                 return;
             }
 
-            EventsDTO.addEvent(NewEvent);
+            EventsDTO.addEvent(NewEvent, "Marek");
             MainViewModel.Planner.updateListBox();
             MainViewModel.Planner.AddView.Close();
         }
 
         private void PerformEditEventAction(Event NewEvent)
         {
-            EventsDTO.editEvent(OldEvent, NewEvent);
+            EventsDTO.editEvent(OldEvent, NewEvent, "Marek");
             MainViewModel.Planner.updateListBox();
             MainViewModel.Planner.EditView.Close();
         }
