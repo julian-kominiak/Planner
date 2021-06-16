@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Input;
 using Planner.Data;
 using Planner.Model;
@@ -155,7 +156,7 @@ namespace Planner.ViewModel
 
         public void updateListBox()
         {
-            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date, CurrentUser);
+            ItemsSource = EventsDTO.getEventsForDate(SelectedDate.Date, CurrentUser).OrderByDescending(o => o.Priority).ToList();
         }
 
         private static string formatLabel(DateTime dateTime)
